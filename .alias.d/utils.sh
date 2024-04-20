@@ -1,9 +1,6 @@
 # utils.sh
 # file and config utility aliases
 
-# use config to manage dotfiles
-alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-
 # just make commands things shorter
 alias vim="nvim"
 alias open="xdg-open"
