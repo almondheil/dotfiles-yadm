@@ -89,7 +89,7 @@ export LD_LIBRARY_PATH
 #### --- CSC-321-322 Students: put your customizations below this --- ####
 ##########################################################################
 
-
+# lmao when were these course numbers common
 
 ######################################################################
 ######### --- Place all other customizations below this --- ##########
@@ -104,11 +104,11 @@ for file in $HOME/.alias.d/*.sh; do
 	source "$file"
 done
 
-export EDITOR=nvim
-alias vim=nvim # to stop me from goofing up
-
 # set PATH appropriately on mathLAN
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/cuda/bin"
 
 # z - jump around
 . $HOME/.z.sh
+
+# set the tty that GPG is getting input from to make sure it works
+export GPG_TTY=$(tty)
