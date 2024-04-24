@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/submap", "custom/spotify"],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "custom/separator", "network", "custom/separator", "battery", "custom/separator", "tray", "custom/separator", "clock", "custom/separator", "custom/notification"],
+    "modules-right": ["backlight", "custom/separator", "pulseaudio", "custom/separator", "network", "custom/separator", "battery", "custom/separator", "tray", "custom/separator", "clock", "custom/separator", "custom/notification"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -63,6 +63,9 @@
             "default": ["", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "backlight": {
+        "format": "scr: {}%",
     },
     "custom/spotify": {
         "format": " {}",
