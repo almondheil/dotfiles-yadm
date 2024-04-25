@@ -13,6 +13,9 @@ export TERM=xterm-256color
 # Make sure gpg works...? I didn't need this in the past
 export GPG_TTY=$(tty)
 
+# set SSH socket to use gnome-keyring-daemon
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+
 # Defaults for various terminal settings
 export EDITOR=nvim
 
