@@ -112,3 +112,4 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/cuda/bin"
 
 # set the tty that GPG is getting input from to make sure it works
 export GPG_TTY=$(tty)
+. "$HOME/.cargo/env"

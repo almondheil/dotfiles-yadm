@@ -22,12 +22,6 @@ export EDITOR=nvim
 # Don't initialize less if there's less than a screen
 export LESS="--no-init --quit-if-one-screen -R"
 
-# Link .ghcup environment if installed
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
-
-# Set ruby gem install location
-export GEM_HOME=$HOME/.gems
-
 # Set PATH to include important stuff
 DESIRED_PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/script:$HOME/.ghcup/bin:$HOME/.gems/bin:$HOME/.local/share/gem/ruby/3.0.0/bin"
 if ! [[ "$PATH" =~ $DESIRED_PATH ]]; then
