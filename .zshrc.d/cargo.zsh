@@ -1,2 +1,1 @@
-# source cargo environment
-. "$HOME/.cargo/env"
+cargo.zsh##hostname.truenas
