@@ -1,2 +1,4 @@
 # source cargo environment
-. "$HOME/.cargo/env"
+if test -f "$HOME/.cargo/env"; then
+	. "$HOME/.cargo/env"
+fi
