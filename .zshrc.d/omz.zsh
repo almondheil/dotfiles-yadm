@@ -12,7 +12,11 @@ zstyle ':omz:update' mode reminder
 zstyle ':omz:update' frequency 13 # check every 13 days
 
 # OMZ plugins
-plugins=(z fzf)
+if command -v fzf > /dev/null; then
+	plugins=(z fzf)
+else
+	plugins=(z)
+fi
 
 # Source oh my zsh
 source $ZSH/oh-my-zsh.sh
