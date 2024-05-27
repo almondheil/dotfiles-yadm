@@ -61,17 +61,6 @@ if command -v flatpak > /dev/null; then
 	flatpak update $DEFAULT_YES
 fi
 
-# fwupd (may reboot system, so should go last)
-
-if command -v fwupdmgr > /dev/null; then
-	echo -e "\nChecking for firmware updates..."
-	echo "$ fwupdmgr refresh"
-	fwupdmgr refresh
-	echo "$ fwupdmgr update"
-	fwupdmgr update $DEFAULT_YES
-fi
-
-
 # on fedora, use the needs-restarting util to check if a reboot is needed
 if command -v needs-restarting >/dev/null && ! needs-restarting -r >/dev/null; then
 	echo -e "\nSystem should be rebooted! (needs-restarting -r)"
@@ -80,11 +69,4 @@ fi
 # on debians, check the presence of /var/run/reboot-required to check if a reboot is needed
 if [ -f /var/run/reboot-required ]; then
 	echo "System should be rebooted! (/var/run/reboot-required)"
-fi
-
-# on arch, use a custom needs reboot script
-# (https://unix.stackexchange.com/a/630982)
-if command -v pacman >/dev/null; then
-	echo
-	$HOME/.local/script/arch-needsreboot
 fi
