@@ -1,8 +1,6 @@
 # utils.sh
 # file and config utility aliases
 
-# just make commands things shorter
-alias vim="nvim"
 alias open="xdg-open"
 alias t="todo.sh"
 alias jb="jobs"
