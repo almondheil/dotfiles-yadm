@@ -7,17 +7,18 @@ fpath+=~/.zfunc
 # Set XDG config home for programs to find
 export XDG_CONFIG_HOME=$HOME/.config
 
-# Set $TERM
-export TERM=xterm-256color
-
 # Make sure gpg works...? I didn't need this in the past
 export GPG_TTY=$(tty)
 
 # set SSH socket to use gnome-keyring-daemon
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
-# Defaults for various terminal settings
-export EDITOR=nvim
+# Use lvim as $EDITOR if installed
+if command -v lvim > /dev/null; then
+  export EDITOR=lvim
+else
+  export EDITOR=vim
+fi
 
 # Don't initialize less if there's less than a screen
 export LESS="--no-init --quit-if-one-screen -R"
@@ -31,11 +32,8 @@ fi
 # Make man display with bat if we have it installed
 if command -v bat > /dev/null
 then
-	export MANPAGER="sh -c 'col -bx | bat -p -l man'"
-	man()
-	{
-		command man "$@" | eval ${MANPAGER}
-	}
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export MANROFFOPT="-c"
 fi
 
 # Set up thefuck, which can correct commands
