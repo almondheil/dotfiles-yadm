@@ -13,6 +13,12 @@ export GPG_TTY=$(tty)
 # set SSH socket to use gnome-keyring-daemon
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
+# Set PATH to include important stuff
+DESIRED_PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/script:$HOME/.ghcup/bin:$HOME/.gems/bin:$HOME/.local/share/gem/ruby/3.0.0/bin"
+if ! [[ "$PATH" =~ $DESIRED_PATH ]]; then
+	export PATH="$PATH:$DESIRED_PATH"
+fi
+
 # Use lvim as $EDITOR if installed
 if command -v lvim > /dev/null; then
   export EDITOR=lvim
@@ -22,12 +28,6 @@ fi
 
 # Don't initialize less if there's less than a screen
 export LESS="--no-init --quit-if-one-screen -R"
-
-# Set PATH to include important stuff
-DESIRED_PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/script:$HOME/.ghcup/bin:$HOME/.gems/bin:$HOME/.local/share/gem/ruby/3.0.0/bin"
-if ! [[ "$PATH" =~ $DESIRED_PATH ]]; then
-	export PATH="$PATH:$DESIRED_PATH"
-fi
 
 # Make man display with bat if we have it installed
 if command -v bat > /dev/null
