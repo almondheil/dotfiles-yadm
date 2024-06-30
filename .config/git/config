@@ -16,7 +16,7 @@
 [commit]
 	gpgsign = true
 [core]
-	editor = nvim
+	editor = vim
 [alias]
 	tree = log --graph --oneline
 	slog = log --oneline
