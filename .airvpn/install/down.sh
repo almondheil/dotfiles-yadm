@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ifconfig tailscale0 up
-tailscale up --accept-routes
+/usr/sbin/ifconfig tailscale0 up
+/usr/bin/tailscale up --accept-routes
