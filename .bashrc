@@ -1,5 +1,4 @@
-# Every time a MathLAN user starts a bash shell, it runs a .bashrc script
-# like this one.
+
 
 # John David Stone, Bazil Mupisiri, Alex French, Reilly Grant, Logan Goldberg
 # Department of Computer Science
@@ -14,9 +13,7 @@
 
 [ -z "$PS1" ] && return
 
-# Set the prompt to a concoction of ~great evil~
-. ~/.git-prompt.sh
-PS1='\[\e[32m\][\t] \[\e[95m\]\u@\h \[\e[96m\]\W\[\e[94m\]$(__git_ps1 " (%s)") \[\e[91m\]\\$ \[\e[0m\]'; PROMPT_DIRTRIM=2
+export PS1='\[\e[90m\][\t]\[\e[0m\] \[\e[92m\]\H\[\e[0m\] \[\e[95m\]\w\[\e[0m\] \\$ '
 
 # Notify the user as soon as a background job is completed.
 
@@ -26,23 +23,6 @@ set -o notify
 
 set -o noclobber
 
-# Define some system-independent commands.
-
-alias print="/usr/bin/a2ps -=lp --sides=duplex"
-
-# Have `checkuser' look up the MathLAN account information for a user.
-
-alias checkuser="/usr/bin/ypcat passwd | /bin/grep"
-
-# Have `password' change the user's network-wide password.
-
-alias password="/net/bin/passphrase"
-
-# Have `share' make files accessible and `unshare' make them inaccessible.
-
-alias share="/bin/chmod go+rX"
-alias unshare="/bin/chmod go-rwx"
-
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -50,12 +30,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     #alias fgrep='fgrep --color=auto'
     #alias egrep='egrep --color=auto'
-fi
-
-# Sources the custom aliases file with gpg encryption commands.
-
-if [ -f ~/.bash_encryption-commands ]; then
-    . ~/.bash_encryption-commands
 fi
 
 # Ensure that spawned shells know the values of critical environment
@@ -110,6 +84,6 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/cuda/bin"
 # z - jump around
 . $HOME/.z.sh
 
-# set the tty that GPG is getting input from to make sure it works
-export GPG_TTY=$(tty)
-. "$HOME/.cargo/env"
+# explicitly setting terminal to xterm 256color makes backspace move left, not right.
+# why is this a setting I had to set? wacky
+export TERM=xterm-256color
