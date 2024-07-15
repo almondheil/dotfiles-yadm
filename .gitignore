@@ -1,0 +1,5 @@
+# this .gitignore applies to yadm, so I can easily ignore files I don't
+# find it helpful to track
+.ssh/sockets
+.ssh/known_hosts
+.ssh/known_hosts.old
